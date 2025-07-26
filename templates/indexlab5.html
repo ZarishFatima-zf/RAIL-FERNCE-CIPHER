@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAIL FENCE CIPHER</title>
+</head>
+<body>
+    <div class="background-image">
+        <h1>RAIL FENCE CIPHER</h1>
+        <div class="container">
+            <form method="POST" action="/">
+                <div class="form-group">
+                    <label for="message">WRITE MESSAGE:</label>
+                    <input type="text" id="message" name="message" required>
+                </div>
+                <div class="form-group">
+                    <label for="key_index">SELECT DEPTH:</label>
+                    <select id="key_index" name="key_index" required>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="action" value="Encrypt">ENCRYPT</button>
+                    <button type="submit" name="action" value="Decrypt">DECRYPT</button>
+                </div>
+                       <div class="result-box">
+                        <h2>OUTPUT</h2>
+                        <div class="result-item">
+                            {% if plain_text %}
+                                <h3>MESSAGE:</h3>
+                                <p>{{ plain_text }}</p>
+                            {% endif %}
+                        </div>
+                        <div class="result-item">
+                            {% if depth %}
+                                <h3>DEPTH:</h3>
+                                <p>{{ depth}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="result-item">
+                            {% if encrypted_message %}
+                                <h3>ENCRYPTED MESSAGE:</h3>
+                                <p>{{ encrypted_message }}</p>
+                            {% endif %}
+                        </div>
+                            <div class="result-item">
+                            {% if decrypted_message %}
+                            <h3>DECRYPTED MESSAGE:</h3>
+                            <p>{{ decrypted_message }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;sans-serif;
+        display: flex;
+        flex-direction: column;
+    }
+    .background-image {
+        background-image: url('https://static.vecteezy.com/system/resources/previews/008/141/207/non_2x/panoramic-abstract-web-background-light-multicolored-gradient-vector.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; 
+        background-repeat: no-repeat;
+        min-height: 100vh; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+    .background-image h1 {
+        text-align: center;
+        font-size: 100px;
+        background: linear-gradient(25deg, green ,black, orange,#68D18C,#202722);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 160rem;
+        padding: 40px;
+        border-radius: 3rem;
+        border:10px solid black;
+        margin-top: 5rem;
+        position: relative;
+    }
+    .container form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .form-group {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    label {
+        margin-right: 1rem;
+        font-weight: bold;
+        font-size: 30px;
+        color: black;
+    }
+    input[type="text"], select {
+        font-size: 20px;
+        padding: 10px;
+        border: 3px solid black;
+        border-radius: 4px;
+        flex-grow: 1;
+    }
+    button {
+        background-image: linear-gradient(60deg, #Da836b,#68D18C, #D6C062,#D16868);
+        border: 5px solid black;
+        border-radius: 2rem;
+        color: black;
+        font-size: 33px;
+        font-weight: bolder;
+        padding: 10px 20px;
+        margin-left: 1rem;
+    }
+    .result-box {
+        border-radius: 4rem;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    .result-box h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 50px;
+        background: linear-gradient(65deg, red, green ,black, orange,#68D18C);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .result-item {
+        margin-bottom: 1rem;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        margin-left: 1rem;
+    }
+    .result-item h3 {
+        font-size: 35px;
+        color: black;
+        font-weight: bolder;   
+    }
+    .result-item p {
+        color: black;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: 1rem;
+    } 
+</style>
+</html>
+
